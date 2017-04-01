@@ -24,4 +24,18 @@ echo "Transducer UNK"
 echo "Second Term"
 cat ../data/NLSPARQL.train.data | cut -f 2 | sed 's/^ *$/#/g' | tr '\n' ' ' | tr '#' '\n' | sed 's/^ *//g;s/ *$//g'  > ../data/secondTerm.txt
 
+echo "FST transducerTOK_POS"
+./fstcompile --isymbols=../data/A.lex --osymbols=../data/A.lex ../data/transducerTOK_POS.txt  > ../data/transducerTOK_POS.fst
+
+echo "FST transducerTOK_POS UNK"
+./fstcompile --isymbols=../data/A.lex --osymbols=../data/A.lex ../data/transducerTOK_POS.txt  > ../data/transducerTOK_POS_UNK.fst
+
+echo "FST UNION"
+ ./fstunion ../data/transducerTOK_POS.fst ../data/transducerTOK_POS_UNK.fst  > ransducer.fst
+
+echo "Train Language model"
+./farcompilestrings --symbols=lex.txt --unknown_symbol='<unk>' ../data/secondTerm.txt > data.far
+./ngramcount --order=3 --require_symbols=false data.far > pos.cnt
+./ngrammake --method=witten_bell pos.cnt > pos.lm
+
 echo "END Train"
