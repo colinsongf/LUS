@@ -15,4 +15,3 @@ do
     echo -e "$token\t$pos\t$prob"
 
 done < $2
-echo "0"

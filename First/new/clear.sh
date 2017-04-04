@@ -7,4 +7,25 @@ rm -f ../data/secondoterm.txt
 rm -f ../data/transducerTOK_POS.txt
 rm -f ../data/transducerTOK_POS_UNK.txt
 rm -f ../data/secondTerm.txt
+rm -f ../data/transducerTOK_POS.fst
+rm -f ../data/transducerTOK_POS_UNK.fst
+rm -f ../data/transducer.fst
+rm -f ../data/data.far
+rm -f ../data/pos.cnt
+rm -f ../data/pos.cnt
+rm -f ../data/pos.lm
+rm -f ../data/transducer.png
+
+rm -f ../data/tok_actual.txt
+rm -f ../data/sentences.txt
+rm -f ../data/sentences_line.txt
+rm -f ../data/tok_sentences_eactual_line.txt
+rm -f ../data/sentences.txt
+rm -f ../data/sentences_line.txt
+rm -f ../data/testFST.txt	
+rm -f ../data/testFST.fst	
+rm -f ../data/line.fst
+rm -f ../data/tok_predicted.txt
+rm -f ../data/output.txt
+rm -f ../data/sentences_line_aux.txt
 echo "END Clear"
