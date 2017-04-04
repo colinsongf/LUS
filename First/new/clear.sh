@@ -27,5 +27,4 @@ rm -f ../data/testFST.fst
 rm -f ../data/line.fst
 rm -f ../data/tok_predicted.txt
 rm -f ../data/output.txt
-rm -f ../data/sentences_line_aux.txt
 echo "END Clear"
