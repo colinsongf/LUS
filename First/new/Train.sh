@@ -1,10 +1,10 @@
 #!/bin/bash
-train = $1
-#train = '../data/NLSPARQL.train.data'
-method = $2
-#method = 'witten_bell'
-order = $3
-#order = 3
+train=$1
+#train='../data/NLSPARQL.train.data'
+method=$2
+#method='witten_bell'
+order=$3
+#order=3
 
 echo "START Train"
 
@@ -39,7 +39,7 @@ fstcompile --isymbols=../data/A.lex --osymbols=../data/A.lex ../data/transducerT
 
 echo "Train Language model"
 farcompilestrings --symbols=../data/A.lex --unknown_symbol='<unk>' ../data/secondTerm.txt > ../data/data.far
-ngramcount --order=order --require_symbols=false ../data/data.far > ../data/pos.cnt
+ngramcount --order=$order --require_symbols=false ../data/data.far > ../data/pos.cnt
 ngrammake --method=$method ../data/pos.cnt > ../data/pos.lm
 
 echo "END Train"
