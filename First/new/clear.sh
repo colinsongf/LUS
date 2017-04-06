@@ -22,8 +22,10 @@ rm -f ../data/sentences_line.txt
 rm -f ../data/tok_sentences_eactual_line.txt
 rm -f ../data/sentences.txt
 rm -f ../data/sentences_line.txt
-rm -f ../data/testFST.txt	
-rm -f ../data/testFST.fst	
+rm -f ../data/testFST.txt
+rm -f ../data/testFSA.txt	
+rm -f ../data/testFST.fst
+rm -f ../data/testFSA.fsa	
 rm -f ../data/line.fst
 rm -f ../data/tok_predicted.txt
 rm -f ../data/output.txt

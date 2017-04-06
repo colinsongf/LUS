@@ -22,17 +22,14 @@ def map(w):
 
 arr = sys.argv
 del(arr[0])
-fsa =arr[1]
-del(arr[1])
 st=0
 
 for s in arr:
 	if not isIn(s):
 		s="<unk>"
-	if (fsa == 1):
-		print(str(st)+"\t"+str((st+1))  + "\t" + str(s))
-	else: 
-		print(str(st)+"\t"+str((st+1)) +"\t"+ str(s) + "\t" + str(s))
+	
+	print(str(st)+"\t"+str((st+1))  + "\t" + str(s)) 
+	#print(str(st)+"\t"+str((st+1)) +"\t"+ str(s) + "\t" + str(s))
 	st+=1
 
 print(str(st))
