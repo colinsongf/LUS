@@ -10,9 +10,7 @@ do
 		cost=$(echo "-l(1 / $total)" | bc -l)   
 	else
 		countUnk=$((countUnk / $total))      
- 	     #total =41  count=x countUnk=1790  =  count/countUNk
 	    cost=$(echo "-l($countUnk / $count)" | bc -l)
-	    #cost=$(echo "-l(($countUnk / $total) / $count)" | bc -l)
 	fi
 	echo -e "0\t0\t<unk>\t$pos\t$cost"
 done < ../data/POS.counts

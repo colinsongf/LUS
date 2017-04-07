@@ -3,8 +3,8 @@ smoothing=$1
 grammar=$2
 threshold=$3
 
-# smoothing [| absolute || katz || kneser_ney || presmoothed || unsmoothed || witten_bell |]  <br />
-#threshold for the cut-off frequency (0- No cut-off) <br />
+# smoothing: absolute katz kneser_ney presmoothed unsmoothed witten_bell 
+# threshold  cut-off frequency 0-No cut-off  
 
 echo "START"
 
@@ -13,6 +13,7 @@ part_2="aux.txt"
 part_3=".txt"
 part_4="_"
 smmothing=""
+
 train='../data/NLSPARQL.train.data'
 test='../data/NLSPARQL.test.data'
 
@@ -34,11 +35,11 @@ then
 	echo $fileaux
 	echo $file
 	./clear.sh
-	./Train.sh $train $smmothing $grammar $threshold
-	./Test.sh $test $fileaux 0 ''
+	./TrainTest.sh $train $test $fileaux $smmothing $grammar $threshold 
 	perl conlleval.pl -d "\t" < $fileaux  >$file
 	rm -f $fileaux
 else
+	#method
 	for s in {1..6}
 	do
 		
@@ -49,21 +50,25 @@ else
 		   4) smmothing="presmoothed"	;;
 		   5) smmothing="unsmoothed"	;;
 		   6) smmothing="witten_bell"	;;
-
 		*)
 		esac
 
+		#grammar
 		for g in {1..5}
 		do
-			fileaux=$part_1$smmothing$part_4$g$part_2
-			file=$part_1$smmothing$part_4$g$part_3
-			echo $fileaux
-			echo $file
-			./clear.sh
-			./Train.sh $train $smmothing $g 0
-			./Test.sh $test $fileaux 0 ''
-			perl conlleval.pl -d "\t" < $fileaux  >$file
-			#rm -f $fileaux
+
+			#cutOff
+			for c in {0..2}
+			do
+				fileaux=$part_1$smmothing$part_4$g$part_4$c$part_2
+				file=$part_1$smmothing$part_4$g$part_4$c$part_3
+				echo $fileaux
+				echo $file
+				./clear.sh
+				./TrainTest.sh $train $test $fileaux $smmothing $g $c 
+				perl conlleval.pl -d "\t" < $fileaux  > $file
+				rm -f $fileaux
+			done	
 		done
 	done
 fi
