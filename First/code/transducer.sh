@@ -7,7 +7,7 @@ do
     # calculate probability
 
     cost=$(echo "-l($count / $poscount)" | bc -l)
-      # -e to interpret \t
+    # -e to interpret \t
     # -n to not print new line
     echo -en "0\t0\t"
     # print token, pos-tag & cost
