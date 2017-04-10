@@ -1,6 +1,6 @@
-processed 7117 tokens with 1091 phrases; found: 1627 phrases; correct: 565.
-accuracy:  83.84%; precision:  34.73%; recall:  51.79%; FB1:  41.57
-       actor.name: precision:   5.32%; recall:  46.25%; FB1:   9.55  695
+processed 7117 tokens with 1091 phrases; found: 1003 phrases; correct: 565.
+accuracy:  86.81%; precision:  56.33%; recall:  51.79%; FB1:  53.96
+       actor.name: precision:  52.11%; recall:  46.25%; FB1:  49.01  71
 actor.nationality: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
        actor.type: precision: 100.00%; recall: 100.00%; FB1: 100.00  2
    award.category: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
