@@ -56,20 +56,24 @@ then
 	echo $test_out_jordan
 	echo $fileresult_elman
 	echo $fileresult_jordan
-	echo "rnn_slu/data/train.txt  rnn_slu/data/valid.txt  $lex $label $configfile $filemodel_elman"
+
 	
 
 	echo "Training Elman config: $config" 
+	echo "param: rnn_slu/data/train.txt  rnn_slu/data/valid.txt  $lex $label $configfile $filemodel_elman"
 	python rnn_slu/lus/rnn_elman_train.py rnn_slu/data/train.txt  rnn_slu/data/valid.txt  $lex $label $configfile $filemodel_elman
 	
 	echo "Training Jordan config: $config" 
+	echo "param: rnn_slu/data/train.txt  rnn_slu/data/valid.txt $lex $label $configfile $filemodel_jordan"
 	python rnn_slu/lus/rnn_jordan_train.py rnn_slu/data/train.txt  rnn_slu/data/valid.txt $lex $label $configfile $filemodel_jordan
 
 	echo "Test Elman config: $config" 
-	python rnn_slu/lus/rnn_elman_test.py rnn_slu/data/train.txt  $test $lex $label  $configfile $test_out_elman > $fileresult_elman
+	echo "param: $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman"
+	python rnn_slu/lus/rnn_elman_test.py $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman
 
 	echo "Test Jordan config: $config" 
-	python rnn_slu/lus/rnn_jordan_test.py rnn_slu/data/train.txt  $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan
+	echo "param: $filemodel_jordan $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan"
+	python rnn_slu/lus/rnn_jordan_test.py $filemodel_jordan $test $lex $label $configfile $test_out_jordan > $fileresult_jordan
 
 else
 	#method
@@ -80,7 +84,7 @@ else
 		filemodel_elman='rnn_slu/data/model_elman_'
 		filemodel_jordan='rnn_slu/data/model_jordan_'
 		test_out_elman='rnn_slu/data/test_out_elaman_'
-		test_out_jordan='rnn_slu/data/test_out_elaman_'	
+		test_out_jordan='rnn_slu/data/test_out_jordan_'	
 
 		filemodel_elman=$filemodel_elman$config
 		filemodel_jordan=$filemodel_jordan$config
@@ -101,16 +105,21 @@ else
 
 
 		echo "Training Elman config: $config" 
+		echo "param: rnn_slu/data/train.txt  rnn_slu/data/valid.txt  $lex $label $configfile $filemodel_elman"
 		python rnn_slu/lus/rnn_elman_train.py rnn_slu/data/train.txt  rnn_slu/data/valid.txt  $lex $label $configfile $filemodel_elman
-				
+	
 		echo "Training Jordan config: $config" 
+		echo "param: rnn_slu/data/train.txt  rnn_slu/data/valid.txt $lex $label $configfile $filemodel_jordan"
 		python rnn_slu/lus/rnn_jordan_train.py rnn_slu/data/train.txt  rnn_slu/data/valid.txt $lex $label $configfile $filemodel_jordan
 
+
 		echo "Test Elman config: $config" 
-		python rnn_slu/lus/rnn_elman_test.py rnn_slu/data/train.txt  $test $lex $label  $configfile $test_out_elman > $fileresult_elman
+		echo "param: $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman"
+		python rnn_slu/lus/rnn_elman_test.py $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman
 
 		echo "Test Jordan config: $config" 
-		python rnn_slu/lus/rnn_jordan_test.py rnn_slu/data/train.txt  $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan
+		echo "param: $filemodel_jordan $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan"
+		python rnn_slu/lus/rnn_jordan_test.py $filemodel_jordan $test $lex $label $configfile $test_out_jordan > $fileresult_jordan
 
 	done
 fi

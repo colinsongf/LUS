@@ -8,18 +8,26 @@ percent=$3
 
 echo "creating files"
 
-line=$(cat $train | cut -f 2 | sed '/^ *$/d'  | tr [:space:] '\n' |sort -gr | uniq | head -n 1) 
+
+echo "concepts"
+cat $train > rnn_slu/data/aux.txt
+cat $test >> rnn_slu/data/aux.txt
+line=$(cat rnn_slu/data/aux.txt | cut -f 2 | sed '/^ *$/d'  | tr [:space:] '\n' |sort -gr | uniq | head -n 1) 
 echo "$line 0" > rnn_slu/data/POS.counts
-cat $train | cut -f 2 | sed '/^ *$/d'  | tr [:space:] '\n' |sort -gr | uniq | tail -n +2   |cat -n  | awk '{OFS="\t" ; print $2,$1}' | sed '/^$/d' >> rnn_slu/data/POS.counts
+cat rnn_slu/data/aux.txt | cut -f 2 | sed '/^ *$/d'  | tr [:space:] '\n' |sort -gr | uniq | tail -n +2   |cat -n  | awk '{OFS="\t" ; print $2,$1}' | sed '/^$/d' >> rnn_slu/data/POS.counts
 
-
+echo "tokens file"
 echo '<UNK> 0' >  rnn_slu/data/A.lex
 cat $train | sed '/^ *$/d'  | tr [:space:] '\n'  |sort -g | uniq |cat -n |  awk '{OFS="\t" ; print $2,$1}' | sed '/^$/d'  >> rnn_slu/data/A.lex
 
 
 
-cat $train  | tr '\t' '#'  > rnn_slu/data/sentences.txt
 
+
+echo "validate files"
+
+
+cat $train  | tr '\t' '#'  > rnn_slu/data/sentences.txt
 
 cat rnn_slu/data/sentences.txt | cut -f 1  | sed 's/^ *$/$/g' | tr "\n" " "  | tr "$" "\n" > rnn_slu/data/sentences_line.txt
 
