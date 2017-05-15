@@ -39,7 +39,7 @@ fileresult_jordan=$part_1$pjordan$part_4$config$part_7
 
 
 
-if [ $config -le 0 ]; 
+if [ $config -gt 0 ]; 
 then
 
 	filemodel_elman=$filemodel_elman$config
@@ -81,7 +81,7 @@ then
 
 else
 	#method
-	for s in {1..7}
+	for s in {1..8}
 	do
 		config=$s
 		configfile=$part_6$config$part_7
@@ -126,7 +126,6 @@ else
 		echo "param: $filemodel_jordan $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan"
 		python rnn_slu/lus/rnn_jordan_test.py $filemodel_jordan $test $lex $label $configfile $test_out_jordan > $fileresult_jordan
 		perl conlleval.pl < $test_out_jordan > $test_out_jordan$pcomplete
-
 
 	done
 fi
