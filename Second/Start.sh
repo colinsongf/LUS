@@ -14,7 +14,7 @@ part_6='rnn_slu/config_'
 part_7='.cfg'
 pelman='elman'
 pjordan='jordan'
-pcomplete='complete'
+pcomplete='complete.txt'
 
 
 train='rnn_slu/data/NLSPARQL.train.data'
@@ -39,7 +39,7 @@ fileresult_jordan=$part_1$pjordan$part_4$config$part_7
 
 
 
-if [ $config -qe 0 ]; 
+if [ $config -le 0 ]; 
 then
 
 	filemodel_elman=$filemodel_elman$config
@@ -120,7 +120,7 @@ else
 		echo "Test Elman config: $config" 
 		echo "param: $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman"
 		python rnn_slu/lus/rnn_elman_test.py $filemodel_elman  $test $lex $label  $configfile $test_out_elman > $fileresult_elman
-		perl conlleval.pl < $test_out_elman > $test_out_elman$pcomplete	
+		perl conlleval.pl < $test_out_elman > $test_out_elman$pcomplete
 
 		echo "Test Jordan config: $config" 
 		echo "param: $filemodel_jordan $test $lex $label  $configfile $test_out_jordan > $fileresult_jordan"

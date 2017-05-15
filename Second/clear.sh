@@ -10,5 +10,6 @@ rm -r rnn_slu/data/sentences_Shuffle.txt
 rm -r rnn_slu/data/sentences_line.txt
 rm -r rnn_slu/data/aux.txt
 rm -r model_*
+rm -r test_out_elaman_*
 
 echo "END Clear"
