@@ -4,7 +4,7 @@
 
 **/Second/start.sh**: This script call Theano tool in order to execute all models, its requires one parameter, if negative number, run all models, if positive between 1..7, run a specific configuration file.
 
-**/Second/files.sh**: Create the label and word dic- tionary, using the initial training dataset, split it in a training dataset with the 75% of the sentences and in a validation dataset with the remaining 25%.
+**/Second/files.sh**: Create the label and word dictionary, using the initial training dataset, split it in a training dataset with the 75% of the sentences and in a validation dataset with the remaining 25%.
 
 **/Second/result/** output evaluation result
 
