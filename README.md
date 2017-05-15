@@ -2,11 +2,11 @@
 
 # Second Project
 
-**/First/code/start.sh**: Used to start ...
+**/Second/start.sh**: This script call Theano tool in order to execute all models, its requires one parameter, if negative number, run all models, if positive between 1..7, run a specific configuration file.
 
-**/Second/files.sh**: Script used to train and test the ML.
+**/Second/files.sh**: Create the label and word dic- tionary, using the initial training dataset, split it in a training dataset with the 75% of the sentences and in a validation dataset with the remaining 25%.
 
-**/First/result/** output evaluation result
+**/Second/result/** output evaluation result
 
 **/Second/rnn_slu/data/**: Train e Test files
 
