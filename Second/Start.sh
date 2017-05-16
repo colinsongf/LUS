@@ -87,8 +87,8 @@ else
 		configfile=$part_6$config$part_7
 		filemodel_elman='rnn_slu/data/model_elman_'
 		filemodel_jordan='rnn_slu/data/model_jordan_'
-		test_out_elman='rnn_slu/data/test_out_elaman_'
-		test_out_jordan='rnn_slu/data/test_out_jordan_'	
+		test_out_elman='result/test_out_elaman_'
+		test_out_jordan='result/test_out_jordan_'
 
 		filemodel_elman=$filemodel_elman$config
 		filemodel_jordan=$filemodel_jordan$config
